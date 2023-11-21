@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>底分计算器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+    function calc() {
+        var RA_0=document.getElementById("num_0").value;
+        var RA_1=document.getElementById("num_1").value;
+        var RA_2=document.getElementById("num_2").value;
+        var RA_3=document.getElementById("num_3").value;
+        var RA_4=document.getElementById("num_4").value;
+        var RA_5=document.getElementById("num_5").value;
+        var RA_6=document.getElementById("num_6").value;
+        var RA_7=document.getElementById("num_7").value;
+        var RA_8=document.getElementById("num_8").value;
+        var RA_9=document.getElementById("num_9").value;
+        var DXRA=document.getElementById("DXRA").value;
+        var B35=DXRA-RA_0-RA_1-RA_2-RA_3-RA_4-RA_5-RA_6-RA_7-RA_8-RA_9;
+        var res=(B35/1.6).toFixed();
+        document.getElementById("ORA").value=res;
+
+    }
+
+    function change(x) {
+        return parseFloat(x);
+
+    }
+        </script>
+
+    <style>
+    * {
+  box-sizing: border-box;
+}
+    body {
+  margin: 0;
+}
+    .header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+    .column {
+  float: left;
+  padding: 10px;
+}
+    .column.side {
+  width: 25%;
+}
+    .column.middle {
+  width: 50%;
+}
+    .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+    @media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+    strong.ex {color:rgb(255,0,0);}
+
+    table,th,td{
+        border:1px solid black;
+        height:50px;
+    }
+
+    table{
+        width:300px
+    }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="header">
+          <h1>一个十分简陋的底分计算器</h1>
+          <p>这个计算器通过你的DX RATING & 部分B50来估算旧版本底分</p>
+        </div>
+        
+        <div class="row">
+          <div class="column side">
+          </div>
+          
+          <div class="column middle">
+        <form action="">
+            <fieldset>
+            <legend>当前版本 でらでらっくすRATING </legend>
+            <p>请在这里填写 DX RATING</p>
+            <p>也就是评级分数</p>
+            <input type="text" id="DXRA" size="5" style="width:150px;height:30px;" placeholder="DX RATING"><br>
+            </fieldset>
+            </form>
+        
+        <form action="">
+            <fieldset>
+            <legend>当前版本B35地板</legend>
+            <p>请分别填写B35中最低的10首歌曲的RATING</p>
+            <p>大概在这里</p>
+            <table>
+                <tr>
+                <th>乐</th>
+                <th>曲</th>
+                <th>名</th>
+                </tr>
+                <tr>
+                <td>达成率</td>
+                <td>评级</td>
+                <td> </td>
+                </tr>
+                <tr class="alt">
+                <td>Base:</td>
+                <td>定数 <strong class="ex">-></strong></td>
+                <td class="ex"><strong class="ex">RATING</strong></td>
+                </tr>
+                <tr>
+                <td>#序号</td>
+                <td> </td>
+                <td> </td>
+                </tr>
+                </table>
+            <p>（即从#26开始填写）</p>
+            <input type="text" id="num_0" size="3" style="width:50px;" placeholder="#26">
+            <input type="text" id="num_1" size="3" style="width:50px;" placeholder="#27">
+            <input type="text" id="num_2" size="3" style="width:50px;" placeholder="#28">
+            <input type="text" id="num_3" size="3" style="width:50px;" placeholder="#29">
+            <input type="text" id="num_4" size="3" style="width:50px;" placeholder="#30"><br>
+            <input type="text" id="num_5" size="3" style="width:50px;" placeholder="#31">
+            <input type="text" id="num_6" size="3" style="width:50px;" placeholder="#32">
+            <input type="text" id="num_7" size="3" style="width:50px;" placeholder="#33">
+            <input type="text" id="num_8" size="3" style="width:50px;" placeholder="#34">
+            <input type="text" id="num_9" size="3" style="width:50px;" placeholder="#35"><br><br>
+            <input type="button" value="计算" onclick="calc()">
+            </fieldset>
+            </form>  
+         <form action="">
+                <fieldset>
+                <legend>你的底分是：</legend>
+                <p><div class="column middle"><input type="text" style="width:150px;height:30px;text-align:center;" id="ORA"></div></p>
+                <p>这个计算器得到的底分数据并不完全绝对准确，只提供大概参考</p>
+                <p>计算方式为(B25+B15)/Rcf，其中Rcf通过数据拟合得到</p>
+                </fieldset>
+             </form>
+            </div>
+          
+          <div class="column side">
+          </div>
+        </div>
+          
+        </body>
+</html>
